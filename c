@@ -33,9 +33,4 @@ end as PENMONTHS,
 Round(case when extract(Month from sysdate)>3 then extract(Month from sysdate)-3
 else 9+extract(Month from sysdate) end ,0) as CFYMONTHS,
 case when extract(month from sysdate)> 3 then extract(year from sysdate)
-else extract(year from sysdate)-1 end as CFSTARTYEAR
-from RTGS_DEV.YSR_PENSIONS)
-WHERE PENMONTHS-CFYMONTHS-12>0
-) A INNER JOIN RTGS_DEV.RTGS_HOUSEHOLD B ON A.UID_NUM = B.UID_NUM;
-
-line2
+else extract(year from sysdate)-1 end as CFSTARTYEAR from RTGS_DEV.YSR_PENSIONS)
